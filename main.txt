@@ -1,0 +1,42 @@
+Using screen to attach and detach console sessions
+If you run a program in SSH, and then close out ssh you can not get back into the console.
+
+However you can use screen to attach + detach a console.
+
+If you have centos, run 
+yum -y install screen
+
+If you have debian/ubuntu run
+apt-get install screen
+
+Once installed, screen is simple to use. Type
+
+screen
+
+run the command you want to run, for example
+
+./run_server.sh
+
+to detach run: ctrl + a + d
+
+Once detached you can check current screens with
+
+screen -ls
+
+Use screen -r to attach a single screen.
+
+On multiple screens you may see something like:
+
+screen -ls
+There are screens on:
+119217.pts-3.webhosting1200 (Detached)
+344074.pts-13.webhosting1200 (Detached)
+825035.pts-1.webhosting1200 (Detached)
+650824.downlbk (Detached)
+4 Sockets in /var/run/screen/S-root.
+
+In this case attach with the value before pts, for example
+
+screen -r 344074
+
+You can shorthand with screen -r 3 (assuming only one begins with the number 3).
